@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PredictIA ⚽ | Analyse football</title>
+  <meta name="description" content="PredictIA analyse les matchs de football avec des statistiques et probabilités.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="logo" href="#">Predict<span>IA</span> ⚽</a>
+    <nav>
+      <a href="#matches">Matchs</a>
+      <a href="#pricing">Premium</a>
+    </nav>
+    <button id="authButton" class="btn btn-outline" onclick="showAuth()">Connexion</button>
+  </header>
+
+  <div id="accountBox"></div><main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">ANALYSE FOOTBALL INTELLIGENTE</p>
+        <h1>Prends de meilleures décisions avec <span>PredictIA</span>.</h1>
+        <p class="hero-text">Analyse les matchs, consulte les probabilités et découvre les indicateurs clés en quelques secondes.</p>
+        <a class="btn btn-primary" href="#matches">Voir les matchs</a>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-top"><span>Analyse IA</span><b>82%</b></div>
+        <h3>Real Madrid <small>vs</small> Barcelona</h3>
+        <div class="mini-bars">
+          <div><span>Real Madrid</span><b>58%</b></div>
+          <div><span>Nul</span><b>24%</b></div>
+          <div><span>Barcelona</span><b>18%</b></div>
+        </div>
+        <div class="confidence">● Niveau de confiance élevé</div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div><strong>1,250+</strong><span>Matchs analysables</span></div>
+      <div><strong>12</strong><span>Marchés disponibles</span></div>
+      <div><strong>24/7</strong><span>Analyse en ligne</span></div>
+    </section>
+
+    <section id="matches" class="section"><div id="apiStatus" class="api-status">Connexion au serveur PredictIA…</div>
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">TABLEAU DE BORD</p>
+          <h2>Matchs du jour</h2>
+        </div>
+        <div class="controls">
+          <input id="search" type="search" placeholder="Rechercher une équipe..." oninput="renderMatches()">
+          <select id="league" onchange="renderMatches()">
+            <option value="all">Toutes les compétitions</option>
+            <option value="Premier League">Premier League</option>
+            <option value="La Liga">La Liga</option>
+            <option value="Ligue 1">Ligue 1</option>
+          </select>
+        </div>
+      </div>
+      <div id="matchGrid" class="match-grid"></div>
+    </section>
+
+    <section id="pricing" class="section pricing">
+      <div class="section-head center">
+        <p class="eyebrow">PREDICTIA PREMIUM</p>
+        <h2>Choisis ton accès</h2>
+      </div>
+      <div class="plans">
+        <article class="plan">
+          <h3>Gratuit</h3>
+          <div class="price">0 <small>FCFA</small></div>
+          <p>Pour découvrir PredictIA.</p>
+          <ul><li>✓ Matchs du jour</li><li>✓ Probabilités principales</li><li>✓ 3 analyses / jour</li></ul>
+          <button class="btn btn-outline full" onclick="showLogin()">Commencer</button>
+        </article>
+        <article class="plan featured">
+          <div class="badge">POPULAIRE</div>
+          <h3>Premium</h3>
+          <div class="price">2 000 <small>FCFA/mois</small></div>
+          <p>Pour accéder aux analyses avancées.</p>
+          <ul><li>✓ Analyses illimitées</li><li>✓ Marchés avancés</li><li>✓ Score de confiance</li><li>✓ Historique des analyses</li></ul>
+          <button class="btn btn-primary full" onclick="startPremiumPayment()">Passer Premium</button>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer><strong>PredictIA ⚽</strong><span>© 2026 · Analyse statistique football</span></footer>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-box">
+      <button class="close" onclick="closeModal()">×</button>
+      <h2>Bienvenue sur PredictIA</h2>
+      <p>La connexion utilisateur sera activée dans la prochaine version.</p>
+      <input placeholder="Adresse e-mail" type="email">
+      <button class="btn btn-primary full" onclick="closeModal()">Continuer</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="auth.js"></script>
+  <script src="script.js"></script><script src="payment.js"></script>
+</body>
+</html>
